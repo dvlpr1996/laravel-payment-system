@@ -7,10 +7,10 @@
 
 ## Features
 
-- payment system
-- ajax
+- payment system with sessions
+- payment system with cookies
 - 
--
+- 
 - 
 
 ## Language And Tools
