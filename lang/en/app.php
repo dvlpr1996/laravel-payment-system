@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'title' => 'Laravel Payment System'
+    'title' => config('app.name')
 ];
