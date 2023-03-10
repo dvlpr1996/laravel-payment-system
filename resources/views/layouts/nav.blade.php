@@ -1,6 +1,7 @@
 <div class="navbar my-3 rounded-lg bg-base-200">
 		<div class="flex-1">
-				<a class="btn-ghost btn text-xl normal-case">
+				<a class="text-xl normal-case">
+						<i class="fas fa-shopping-bag ml-2"></i>
 						{{ str_replace('-', ' ', __('app.title')) }}
 				</a>
 		</div>
@@ -16,7 +17,7 @@
 										<span class="badge badge-sm indicator-item">8</span>
 								</div>
 						</label>
-						<div tabindex="0" class="card-compact card dropdown-content mt-3 w-52 bg-base-100 shadow">
+						<div tabindex="0" class="card dropdown-content card-compact mt-3 w-52 bg-base-100 shadow">
 								<div class="card-body">
 										<span class="text-lg font-bold">8 Items Selected</span>
 										<span class="text-info">Subtotal: $999</span>
