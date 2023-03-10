@@ -1,4 +1,4 @@
-<div class="navbar my-3 rounded-lg bg-base-200">
+<div class="navbar my-3 rounded-lg border border-neutral-content bg-base-200">
 		<div class="flex-1">
 				<a class="text-xl normal-case">
 						<i class="fas fa-shopping-bag ml-2"></i>
