@@ -12,13 +12,11 @@
 								<p class="py-6 text-xl font-bold capitalize">
 										get the best product at your home
 								</p>
-								<button class="btn-primary btn">Get Started</button>
+								<a href="{{ route('index') }}" class="btn-primary btn">Get Started</a>
 						</div>
 				</div>
 		</div>
 
-		<div class="my-3 grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-items-center gap-3">
-				<x-cards></x-cards>
-		</div>
+		<x-cards></x-cards>
 
 @endsection
