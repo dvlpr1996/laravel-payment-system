@@ -5,7 +5,7 @@
 		<div class="space-y-4 text-center">
 				<h2 class="text-2xl font-bold capitalize">{{ $product->title }}</h2>
 				<p class="text-xl font-bold">{{ $product->price ?? 'Not Defined' }}</p>
-				<a href="{{ route('product', $product->id) }}" class="btn-primary btn-sm btn w-full italic">
+				<a href="{{ route('product', $product->slug) }}" class="btn-primary btn-sm btn w-full italic">
 						more details
 				</a>
 		</div>

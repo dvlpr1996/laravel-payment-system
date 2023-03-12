@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,9 +16,9 @@ class ProductFactory extends Factory
             'title' => fake()->realText(20),
             'description' => fake()->realText(30),
             'price' => fake()->numberBetween(0, 400000),
-            'image' => 'https://loremflickr.com/'
-                . mt_rand(0, 500) . '/' . mt_rand(0, 500) .
-                '/world?random=' . fake()->randomNumber(),
+            'slug' => Str::slug(fake()->realText(20)),
+            'image' => 'https://loremflickr.com/332/104'
+                . '/world?random=' . fake()->randomNumber(),
             'stock' => fake()->numberBetween(0, 10)
         ];
     }

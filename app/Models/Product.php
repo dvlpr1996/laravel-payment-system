@@ -17,9 +17,4 @@ class Product extends Model
             get: fn (string $value) => $value == 0 ? 'Not Define' : 'تومان ' . moneyFormat($value),
         );
     }
-
-    public function slug()
-    {
-        return Str::slug($this->attributes['title']);
-    }
 }

@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', [ProductController::class, 'index'])->name('index');
-Route::get('/product/{product}', [ProductController::class, 'product'])->name('product');
+Route::get('/product/{product:slug}', [ProductController::class, 'product'])->name('product');
+Route::view('/basket/{product:slug}', 'app.basket')->name('basket.add');
 Route::view('/basket', 'app.basket');
 Route::view('/checkout ', 'app.checkout');
 
