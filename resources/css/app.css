@@ -24,3 +24,7 @@
   position: relative;
   min-height: 100vh;
 }
+
+img {
+  pointer-events: none;
+}
