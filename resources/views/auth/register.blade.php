@@ -14,7 +14,7 @@
 
 						<form action="{{ route('register') }}" method="POST">
 								@csrf
-								<div class="card-body">
+								<div class="card-body pt-1">
 										<div class="flex flex-col items-center justify-between gap-3 sm:flex-row">
 												<div class="form-control w-full">
 														<x-lable>First Name</x-lable>
@@ -41,7 +41,7 @@
 
 										<div class="form-control">
 												<x-lable>Password</x-lable>
-												<x-input type="Password" place="Password" name="Password">
+												<x-input type="Password" place="Password" name="password">
 												</x-input>
 										</div>
 

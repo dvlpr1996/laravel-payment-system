@@ -161,10 +161,27 @@ return [
     | specify a specific custom language line for a given attribute rule.
     |
     */
-
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'required' => 'Email Address Is Required',
+            'string' => 'Email Address must be a string.',
+        ],
+        'password' => [
+            'required' => 'Password Is Required',
+        ],
+        'fname' => [
+            'required' => 'First Name Is Required',
+            'max' => 'First Name must not be greater than :max characters.',
+            'string' => 'First Name must be a string.',
+        ],
+        'lname' => [
+            'required' => 'Last Name Is Required',
+            'max' => 'Last Name must not be greater than :max characters.',
+            'string' => 'Last Name must be a string.',
+        ],
+        'tel' => [
+            'required' => 'Phone Number Is Required',
+            'digits' => 'Phone Number must be :digits digits.',
         ],
     ],
 

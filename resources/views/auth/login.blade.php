@@ -4,7 +4,7 @@
 
 @section('main')
 		<div class="mx-auto flex min-h-screen max-w-5xl items-center justify-center bg-base-100">
-				<div class="card w-[500px] bg-base-200 shadow-2xl">
+				<div class="card w-[400px] bg-base-200 shadow-2xl">
 
 						<h3 class="mt-3 text-center text-3xl font-light capitalize">
 								welcome back
@@ -14,7 +14,7 @@
 
 						<form action="{{ route('login') }}" method="POST">
 								@csrf
-								<div class="card-body">
+								<div class="card-body pt-1">
 										<div class="form-control w-full">
 												<x-lable>email</x-lable>
 												<x-input type="email" place="email address" name="email"></x-input>
