@@ -18,6 +18,7 @@ class User extends Authenticatable
         'lname',
         'tel',
         'email',
+        'address',
         'password',
     ];
 
@@ -39,7 +40,7 @@ class User extends Authenticatable
     {
         return Attribute::make(
             get: fn (string $value) => is_null($value) ? __('app.model.address') : $value,
-            set: fn (string $value) => is_null($value) ? 'not defined' : $value,
+            set: fn (string $value) => empty($value) ? 'not defined' : $value,
         );
     }
 }
