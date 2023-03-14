@@ -34,16 +34,24 @@
 												<img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
 										</div>
 								</label>
-								<ul tabindex="0" class="dropdown-content menu menu-compact w-52 bg-base-100 p-5 shadow space-y-4 rounded-lg border border-neutral-content">
+								<ul tabindex="0"
+										class="dropdown-content menu menu-compact w-52 space-y-4 rounded-lg border border-neutral-content bg-base-100 p-5 shadow">
 										<li>{{ ucfirst(auth()->user()->fullName()) }}</li>
-										<li><a href="{{ route('logout') }}" class="p-0">Logout</a></li>
+										<li>
+												<form id="logout" action="{{ route('logout') }}" method="post" class="hidden">@csrf</form>
+												<a href="{{ route('logout') }}" class="p-0"
+														onclick="event.preventDefault();
+                            document.getElementById('logout').submit();">
+														Logout
+												</a>
+										</li>
 								</ul>
 						</div>
 				@endauth
 
 				@guest
-            <a href="" class="capitalize">login</a>
-            <a href="{{ route('register') }}" class="capitalize">register</a>
+						<a href="{{ route('login') }}" class="capitalize">login</a>
+						<a href="{{ route('register') }}" class="capitalize">register</a>
 				@endguest
 		</div>
 </div>
