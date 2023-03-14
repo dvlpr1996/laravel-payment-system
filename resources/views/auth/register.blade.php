@@ -27,36 +27,36 @@
 										<div class="flex flex-col items-center justify-between gap-3 sm:flex-row">
 												<div class="form-control w-full">
 														<x-lable>First Name</x-lable>
-														<input type="text" placeholder="First Name" class="input-bordered input" name="fname">
+														<x-input type="text" place="First Name" name="fname"></x-input>
 												</div>
 
 												<div class="form-control w-full">
 														<x-lable>Last Name</x-lable>
-														<input type="text" placeholder="Last Name" class="input-bordered input" name="lname">
+														<x-input type="text" place="Last Name" name="lname"></x-input>
 												</div>
 										</div>
 
 										<div class="flex flex-col items-center justify-between gap-3 sm:flex-row">
 												<div class="form-control w-full">
 														<x-lable>phone number</x-lable>
-														<input type="tel" placeholder="phone number" class="input-bordered input" name="tel">
+														<x-input type="tel" place="phone number" name="tel"></x-input>
 												</div>
 
 												<div class="form-control w-full">
 														<x-lable>email</x-lable>
-														<input type="email" placeholder="email address" class="input-bordered input" name="email">
+														<x-input type="email" place="email address" name="email"></x-input>
 												</div>
 										</div>
 
 										<div class="form-control">
 												<x-lable>Password</x-lable>
-												<input type="Password" placeholder="password" class="input-bordered input" name="password">
+												<x-input type="Password" place="Password" name="Password">
+                        </x-input>
 										</div>
 
 										<div class="form-control">
 												<x-lable>confirm Password</x-lable>
-												<input type="Password" placeholder="confirm password" class="input-bordered input"
-														name="password_confirmation">
+												<x-input type="Password" place="confirm password" name="password_confirmation"></x-input>
 										</div>
 
 										<div class="form-control mt-6">
