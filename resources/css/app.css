@@ -30,9 +30,6 @@
 }
 
 @layer components {
-  .label-text {
-    @apply capitalize;
-  }
 }
 
 .hero-main {

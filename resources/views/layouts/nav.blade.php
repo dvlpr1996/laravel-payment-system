@@ -43,7 +43,7 @@
 
 				@guest
             <a href="" class="capitalize">login</a>
-            <a href="" class="capitalize">register</a>
+            <a href="{{ route('register') }}" class="capitalize">register</a>
 				@endguest
 		</div>
 </div>
