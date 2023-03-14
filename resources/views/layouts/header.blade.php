@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="@yield('body', '')">
 
 <head>
 		<title>Laravel Payment System - @yield('title')</title>
@@ -23,13 +23,13 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon.ico') }}">
 		<link rel="apple-touch-icon" sizes="180x180"href="{{ asset('favicon.ico') }}">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-		@vite(['resources/css/app.css','resources/js/app.js'])
+		@vite(['resources/css/app.css', 'resources/js/app.js'])
 		<!-- [if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 			<![endif] -->
 </head>
 
 <body x-data="{ 'darkMode': true }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
-$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)));" class="max-w-7xl mx-auto px-4 debug-screens">
+$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)));" class="debug-screens mx-auto max-w-7xl px-4">
 
 		<div x-bind:class="{ 'dark': darkMode === true }" id="page-container">

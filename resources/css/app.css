@@ -2,29 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-.hero {
-  background-image: url('../image/banner.jpeg'),
-    linear-gradient(rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5));
-      background-position: bottom;
-      background-repeat: no-repeat;
-      background-size: cover;
-      opacity: 0.9;
-}
+@layer base {
+  @media(min-width:768px) {
+    footer {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+    }
+  }
 
-@media(min-width:768px) {
-  footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+  #page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+  img {
+    pointer-events: none;
+  }
+
+  ::placeholder {
+    @apply capitalize;
+  }
+
+  a{
+    @apply hover:bg-inherit;
   }
 }
 
-#page-container {
-  position: relative;
-  min-height: 100vh;
+@layer components {
+  .label-text {
+    @apply capitalize;
+  }
 }
 
-img {
-  pointer-events: none;
+.hero-main {
+  background-image: url('../image/banner.jpeg'),
+    linear-gradient(rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5));
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
 }

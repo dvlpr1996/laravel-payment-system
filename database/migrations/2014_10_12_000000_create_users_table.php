@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('fname', 32);
             $table->string('lname', 64);
             $table->string('email')->unique();
-            $table->string('tel', 10)->unique();
+            $table->string('tel', 11)->unique();
             $table->string('address', 512)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

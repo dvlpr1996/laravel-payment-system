@@ -3,7 +3,7 @@
 
 @section('main')
 
-		<div class="hero my-3 min-h-screen rounded-lg bg-base-200">
+		<div class="hero hero-main my-3 min-h-screen rounded-lg bg-base-200">
 				<div class="hero-content text-center text-white">
 						<div>
 								<h1 class="text-4xl font-bold capitalize leading-[3.5rem] md:text-5xl">
