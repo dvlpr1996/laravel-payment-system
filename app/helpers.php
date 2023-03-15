@@ -6,3 +6,10 @@ if (!function_exists('moneyFormat')) {
         return number_format(trim($value), 0, '');
     }
 }
+
+if (!function_exists('allSession')) {
+    function allSession(): array
+    {
+        return session()->all();
+    }
+}
