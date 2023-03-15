@@ -2,7 +2,7 @@
 @section('title', 'Home')
 
 @section('main')
-
+  <x-flash-msg/>
 		<div class="my-10 flex flex-wrap items-center gap-5">
 				<div class="w-full md:w-6/12">
 						<div>
