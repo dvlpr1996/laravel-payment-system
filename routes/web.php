@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\ProductController;
 
-Route::get('/', [ProductController::class, 'index'])->name('index');
+Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/checkout', [ProductController::class, 'index'])->name('checkout.index');
 Route::get('/product/{product:slug}', [ProductController::class, 'product'])->name('product');
 
