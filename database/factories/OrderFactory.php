@@ -16,7 +16,6 @@ class OrderFactory extends Factory
             'user_id' => User::first() ?? User::factory(),
             'code' => fake()->randomNumber(5, true),
             'amount' => fake()->numberBetween(0, 100),
-            'quantity' => fake()->numberBetween(0, 10)
         ];
     }
 }
