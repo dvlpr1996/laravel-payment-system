@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Service\Storage\SessionStorage;
 use Illuminate\Support\ServiceProvider;
+use App\Service\Storage\Contract\StorageInterface;
 
 class AppServiceProvider extends ServiceProvider
 {

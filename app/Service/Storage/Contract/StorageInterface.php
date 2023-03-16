@@ -9,5 +9,5 @@ interface StorageInterface
     public function all();
     public function exists($index);
     public function unset($index);
-    public function clear();
+    public function clearAll();
 }

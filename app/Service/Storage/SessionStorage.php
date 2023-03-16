@@ -36,7 +36,7 @@ class SessionStorage implements StorageInterface
         return session()->forget($this->bucket . '.' . $index);
     }
 
-    public function clear()
+    public function clearAll()
     {
         return session()->forget($this->bucket);
     }
