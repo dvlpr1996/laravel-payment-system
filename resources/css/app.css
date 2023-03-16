@@ -3,12 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  @media(min-width:768px) {
-    footer {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-    }
+  footer {
+    @apply my-3;
   }
 
   #page-container {
@@ -24,12 +20,9 @@
     @apply capitalize;
   }
 
-  a{
+  a {
     @apply hover:bg-inherit;
   }
-}
-
-@layer components {
 }
 
 .hero-main {

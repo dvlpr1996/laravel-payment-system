@@ -1,4 +1,4 @@
-<div class="my-3 grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] justify-items-center gap-3">
+<div class="my-3 grid grid-cols-12 gap-3">
 		@forelse ($products as $product)
 				<x-card :product="$product"></x-card>
 		@empty
