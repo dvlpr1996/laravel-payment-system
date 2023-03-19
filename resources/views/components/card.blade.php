@@ -6,7 +6,7 @@
 				</div>
 				<div class="flex items-center gap-5 flex-col text-center capitalize">
 						<h2 class="text-2xl font-bold">{{ $product->title }}</h2>
-						<p class="text-xl font-bold">{{ $product->price ?? 'Not Defined' }}</p>
+						<p class="text-xl font-bold">{{ moneyFormat($product->price) }}</p>
 				</div>
 				<div class="flex justify-center">
 						<a href="{{ route('product', $product->slug) }}" class="btn-primary btn-sm btn w-full italic">

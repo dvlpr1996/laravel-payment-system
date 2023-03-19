@@ -13,15 +13,8 @@ class Product extends Model
 {
     use HasFactory;
 
-    public function orders() :BelongsToMany
+    public function orders(): BelongsToMany
     {
         return $this->belongsToMany(Order::class)->withPivot('quantity');
-    }
-
-    protected function price(): Attribute
-    {
-        return Attribute::make(
-            get: fn (string $value) => $value == 0 ? 'Not Define' : 'تومان ' . moneyFormat($value),
-        );
     }
 }

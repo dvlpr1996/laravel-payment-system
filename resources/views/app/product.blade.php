@@ -18,7 +18,7 @@
 								</li>
 								<li class="flex items-center justify-between">
 										<span class="text-xl font-bold">price :</span>
-										<span class="text-base font-bold">{{ $product->price }}</span>
+										<span class="text-base font-bold">{{ moneyFormat($product->price) }}</span>
 								</li>
 								<li class="flex items-center justify-between">
 										<span class="text-xl font-bold">stock :</span>
