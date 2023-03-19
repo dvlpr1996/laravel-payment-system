@@ -31,7 +31,7 @@ trait BasketTrait
         return $this->storage->set($product->id, $data);
     }
 
-    private function unsetItem(Product $product)
+    public function unsetItem(Product $product)
     {
         return $this->storage->unset($product->id);
     }
@@ -41,7 +41,7 @@ trait BasketTrait
         return $this->storage->get($product->id)['quantity'];
     }
 
-    private function getBasketItemInfo()
+    public function getBasketItemInfo()
     {
         $basketItemInfo = Product::find(array_keys($this->basketItems()))->all();
         foreach ($basketItemInfo as $item) {

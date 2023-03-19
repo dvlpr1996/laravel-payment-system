@@ -17,4 +17,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Order::class)->withPivot('quantity');
     }
+
+    public function checkStock(int $quantity): bool
+    {
+        return $this->stock < $quantity;
+    }
 }

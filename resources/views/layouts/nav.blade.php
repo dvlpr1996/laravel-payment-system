@@ -29,14 +29,14 @@
 										</span>
 
 										<span class="text-info">
-                      Subtotal:
-                      {{ moneyFormat($basket->getBasketSubtotal()) }}
-                    </span>
+												Subtotal:
+												{{ moneyFormat($basket->getBasketSubtotal()) }}
+										</span>
 
 										<div class="card-actions">
-												<button class="btn-primary btn-block btn">
-                          {{-- {{ $basket->clearBasket() }} --}}
-                        </button>
+												<a href="{{ route('basket.index') }}" class="btn-primary btn-block btn">
+                          your basket
+												</a>
 										</div>
 								</div>
 						</div>
