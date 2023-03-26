@@ -2,7 +2,7 @@
 @section('title', 'checkout')
 
 @section('main')
-		<div class="my-3 flex flex-col gap-5 md:flex-row">
+		<div class="my-3 flex flex-col gap-5 md:flex-row min-h-screen">
 				<div class="w-full md:w-7/12 lg:w-8/12">
 						<div class="space-y-5 rounded-lg border border-neutral-content bg-base-200 p-5">
 								<h3 class="text-2xl capitalize">user information</h3>

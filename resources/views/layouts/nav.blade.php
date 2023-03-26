@@ -2,12 +2,12 @@
 
 <div class="navbar my-3 rounded-lg border border-neutral-content bg-base-200">
 		<div class="flex-1">
-				<a href="{{ route('index') }}" class="text-xl normal-case">
+				<a href="{{ route('index') }}" class="text-base normal-case sm:text-xl">
 						<i class="fas fa-shopping-bag ml-2"></i>
 						{{ str_replace('-', ' ', __('app.title')) }}
 				</a>
 		</div>
-		<div class="flex-none gap-1 md:gap-3">
+		<div class="flex-none gap-2 md:gap-3">
 				<div class="dropdown-end dropdown">
 						<label tabindex="0" class="btn-ghost btn-circle btn">
 								<div class="indicator">
@@ -35,7 +35,7 @@
 
 										<div class="card-actions">
 												<a href="{{ route('basket.index') }}" class="btn-primary btn-block btn">
-                          your basket
+														your basket
 												</a>
 										</div>
 								</div>
@@ -65,8 +65,16 @@
 				@endauth
 
 				@guest
-						<a href="{{ route('login') }}" class="capitalize">login</a>
-						<a href="{{ route('register') }}" class="capitalize">register</a>
+						<div class="flex items-center gap-2">
+								<a href="{{ route('login') }}" class="capitalize">
+										<i class="fas fas fa-sign-in-alt block sm:hidden"></i>
+										<span class="hidden text-base sm:block">login</span>
+								</a>
+								<a href="{{ route('register') }}" class="capitalize">
+										<i class="fas fa-user-plus block sm:hidden"></i>
+										<span class="hidden text-base sm:block">register</span>
+								</a>
+						</div>
 				@endguest
 		</div>
 </div>

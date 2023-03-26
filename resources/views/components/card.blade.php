@@ -1,17 +1,18 @@
-<div class="card col-span-12 shadow-lg sm:col-span-6 md:col-span-4 xl:col-span-3">
-		<div class="flex h-full select-none flex-col justify-center rounded-lg border border-neutral-content bg-base-200 p-3 gap-5">
-				<div class="w-full">
-						<img src="{{ $product->image }}" alt="{{ $product->title }}" class="h-48 w-full rounded-lg object-fill"
-								loading="lazy">
-				</div>
-				<div class="flex items-center gap-5 flex-col text-center capitalize">
-						<h2 class="text-2xl font-bold">{{ $product->title }}</h2>
-						<p class="text-xl font-bold">{{ moneyFormat($product->price) }}</p>
-				</div>
-				<div class="flex justify-center">
-						<a href="{{ route('product', $product->slug) }}" class="btn-primary btn-sm btn w-full italic">
-								more details
-						</a>
-				</div>
+<div
+		class="flex flex-col overflow-hidden rounded-lg border border-neutral-content bg-base-200 shadow-xl hover:border-indigo-700 col-span-12 sm:col-span-6 md:col-span-4 xl:col-span-3">
+
+		<img src="{{ $product->image }}" alt="{{ $product->title }}"
+				class="h-56 transform rounded-xl object-fill object-center p-2 shadow-lg duration-100 ease-in hover:scale-[1.05]"
+				loading="lazy">
+
+		<div class="flex flex-col items-center justify-start gap-2 px-2 md:px-0 py-4 text-center lg:px-2">
+				<h2 class="text-xl font-bold capitalize md:text-2xl">{{ $product->title }}</h2>
+				<p class="text-base text-orange-600">{{ moneyFormat($product->price) }}</p>
+		</div>
+
+		<div class="px-6 py-3">
+				<a href="{{ route('product', $product->slug) }}" class="btn-primary btn w-full p-1 text-sm font-medium italic">
+						more details
+				</a>
 		</div>
 </div>

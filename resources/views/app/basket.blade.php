@@ -4,7 +4,7 @@
 @inject('basketCalculator', 'App\Service\Basket\Basket')
 
 @section('main')
-		<div class="my-3 flex flex-col gap-5 md:flex-row">
+		<div class="my-3 flex min-h-screen flex-col gap-5 md:flex-row">
 				<div class="w-full md:w-7/12 lg:w-8/12">
 
 						<x-formErorr :errors="$errors"></x-formErorr>
@@ -27,7 +27,12 @@
 														@foreach ($baskets as $basket)
 																<tr>
 																		<td class="text-center">{{ ++$basket->index }}</td>
-																		<td class="text-center">{{ $basket->title }}</td>
+																		<td class="text-center">
+																				<a href="{{ route('product', $basket->slug) }}"
+                                          target="_blank" class="underline">
+																						{{ $basket->title }}
+																				</a>
+																		</td>
 																		<td class="text-center">{{ $basket->price }}</td>
 																		<td class="text-center">{{ $basket->quantity }}</td>
 																		<td class="text-center">

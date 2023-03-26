@@ -6,7 +6,7 @@
   .select-input {
     @apply select-primary select select-sm;
   }
-  
+
   footer {
     @apply my-3;
   }
