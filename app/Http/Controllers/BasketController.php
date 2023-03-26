@@ -45,7 +45,11 @@ class BasketController extends Controller
             return $this->remove($product);
         }
 
-        $this->basket->updateBasket($product, $quantity);
-        return back()->with('success', __('payment.success add to basket'));
+        try {
+            $this->basket->updateBasket($product, $quantity);
+            return back()->with('success', __('payment.success add to basket'));
+        } catch (QuantityExceededException $e) {
+            return back()->with('error', __('payment.quantity exceeded'));
+        }
     }
 }
