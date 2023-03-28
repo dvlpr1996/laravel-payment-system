@@ -166,6 +166,13 @@ return [
             'required' => 'Email Address Is Required',
             'string' => 'Email Address must be a string.',
         ],
+        'paymentMethod' => [
+            'required' => 'The Payment Method Is Required.',
+        ],
+        'gateway' => [
+            'required_if' =>
+            'The payment gateway Is Required When Payment Method Is Online.',
+        ],
         'password' => [
             'required' => 'Password Is Required',
         ],
