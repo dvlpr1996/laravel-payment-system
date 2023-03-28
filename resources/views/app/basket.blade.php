@@ -1,8 +1,6 @@
 @extends('layouts.master')
 @section('title', 'shopping cart')
 
-@inject('basketCalculator', 'App\Service\Basket\Basket')
-
 @section('main')
 		<div class="my-3 flex min-h-screen flex-col gap-5 md:flex-row">
 				<div class="w-full md:w-7/12 lg:w-8/12">
@@ -28,8 +26,7 @@
 																<tr>
 																		<td class="text-center">{{ ++$basket->index }}</td>
 																		<td class="text-center">
-																				<a href="{{ route('product', $basket->slug) }}"
-                                          target="_blank" class="underline">
+																				<a href="{{ route('product', $basket->slug) }}" target="_blank" class="underline">
 																						{{ $basket->title }}
 																				</a>
 																		</td>
@@ -69,28 +66,7 @@
 						@endif
 				</div>
 
-				<div class="w-full md:w-5/12 lg:w-4/12">
-						<div class="space-y-5 rounded-lg border border-neutral-content bg-base-200 p-5">
-								<h3 class="text-2xl capitalize">payment</h3>
-								<hr class="my-5">
-								<ul class="space-y-6 capitalize">
-										<li class="flex items-center justify-between">
-												<span>total price</span>
-												<span>{{ moneyFormat($basketCalculator->getBasketSubtotal()) }}</span>
-										</li>
-										<li class="flex items-center justify-between">
-												<span>Transportation costs</span>
-												<span>{{ moneyFormat(20000) }}</span>
-										</li>
-										<li class="flex items-center justify-between">
-												<span>The amount payable</span>
-												<span>
-														{{ moneyFormat($basketCalculator->getBasketSubtotal() + 20000) }}
-												</span>
-										</li>
-								</ul>
-								<a href="#" class="btn-primary btn w-full">checkout</a>
-						</div>
-				</div>
+				<x-payment-card />
+
 		</div>
 @endsection

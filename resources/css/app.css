@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  input[type="radio"] {
+    @apply radio-primary radio;
+  }
+
+  option {
+    @apply capitalize;
+  }
+
   .select-input {
     @apply select-primary select select-sm;
   }
