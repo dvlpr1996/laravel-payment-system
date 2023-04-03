@@ -13,3 +13,14 @@ if (!function_exists('allSession')) {
         return session()->all();
     }
 }
+
+if (!function_exists('secureOrderCode')) {
+    function secureOrderCode(int $len = 32): string
+    {
+        return substr(
+            str_shuffle(bin2hex(random_bytes($len)) . time()),
+            0,
+            $len
+        );
+    }
+}

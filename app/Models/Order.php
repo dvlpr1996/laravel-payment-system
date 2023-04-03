@@ -16,6 +16,7 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = ['user_id', 'code', 'amount'];
+    protected $table = 'orders';
 
     public function products(): BelongsToMany
     {
