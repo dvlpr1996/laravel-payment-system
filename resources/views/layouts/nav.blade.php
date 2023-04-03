@@ -46,7 +46,7 @@
 						<div class="dropdown-end dropdown">
 								<label tabindex="0" class="btn-ghost btn-circle avatar btn">
 										<div class="w-10 rounded-full">
-												<img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+												<img src="{{ auth()->user()->userGravatar() }}">
 										</div>
 								</label>
 								<ul tabindex="0"

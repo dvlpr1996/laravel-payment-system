@@ -14,13 +14,13 @@
 
 						<li class="flex items-center justify-between">
 								<span>Transportation costs</span>
-								<span>{{ moneyFormat(20000) }}</span>
+								<span>{{ $basketCalculator->transportationCosts }}</span>
 						</li>
-            
+
 						<li class="flex items-center justify-between">
 								<span>The amount payable</span>
 								<span>
-										{{ moneyFormat($basketCalculator->getBasketSubtotal() + 20000) }}
+										{{ moneyFormat($basketCalculator->payableAmount()) }}
 								</span>
 						</li>
 				</ul>

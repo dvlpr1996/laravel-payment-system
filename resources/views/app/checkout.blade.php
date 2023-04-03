@@ -2,6 +2,9 @@
 @section('title', 'checkout')
 
 @section('main')
+
+		<x-flash-msg />
+
 		<div class="my-3 flex flex-col gap-5 md:flex-row">
 				<div class="w-full md:w-7/12 lg:w-8/12">
 						<div class="space-y-5 rounded-lg border border-neutral-content bg-base-200 p-5">
@@ -39,8 +42,8 @@
 						<h3 class="text-2xl capitalize">Payment methods</h3>
 						<hr class="my-5">
 
-            <x-formErorr :errors="$errors"></x-formErorr>
-            
+						<x-formErorr :errors="$errors"></x-formErorr>
+
 						<form action="{{ route('basket.checkOut') }}" method="POST">
 								@csrf
 								<ul class="list-none space-y-6 capitalize">

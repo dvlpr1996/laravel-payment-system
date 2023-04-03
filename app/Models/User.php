@@ -43,4 +43,9 @@ class User extends Authenticatable
             set: fn (string $value) => empty($value) ? 'not defined' : $value,
         );
     }
+
+    public function userGravatar()
+    {
+        return 'https://www.gravatar.com/avatar/' . md5(trim($this->email));
+    }
 }
