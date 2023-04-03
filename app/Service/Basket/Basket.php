@@ -3,6 +3,7 @@
 namespace App\Service\Basket;
 
 use App\Models\Product;
+use Illuminate\Support\Facades\Config;
 use App\Service\Basket\Trait\BasketTrait;
 use App\Service\Storage\Contract\StorageInterface;
 
@@ -10,9 +11,18 @@ class Basket
 {
     use BasketTrait;
 
-    public function __construct(
-        private StorageInterface $storage
-    ) {
+    private StorageInterface $storage;
+    public int $transportationCosts;
+
+    public function __construct(StorageInterface $storage)
+    {
+        $this->storage = $storage;
+        $this->transportationCosts = Config::get('payment.transportationCosts');
+    }
+
+    public function getTransportationCosts()
+    {
+        return moneyFormat($this->transportationCosts);
     }
 
     public function addToBasket(Product $product, int $quantity)

@@ -68,6 +68,11 @@ trait BasketTrait
         return $subtotal;
     }
 
+    public function payableAmount()
+    {
+        return $this->getBasketSubtotal() + $this->transportationCosts;
+    }
+
     public function checkBasketDate(Product $product, int $quantity)
     {
         if ($product->stock == 0) {

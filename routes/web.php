@@ -9,7 +9,6 @@ use App\Http\Controllers\CheckOutController;
 Route::get('/', [HomeController::class, 'index'])->name('index');
 
 Route::controller(ProductController::class)->group(function () {
-    Route::get('/checkout', 'index')->name('checkout.index');
     Route::get('/product/{product:slug}', 'product')->name('product');
 });
 
@@ -28,4 +27,5 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/t', function () {
+  
 });
