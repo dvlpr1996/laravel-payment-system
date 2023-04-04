@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Service\Order\Order;
 use App\Service\Basket\Basket;
+use App\Service\Gateways\Saman;
 use App\Service\Payment\Payment;
+use App\Service\Gateways\Pasargad;
 use App\Exceptions\AmountIsZeroException;
-use App\Service\Transaction\Gateways\Saman;
 use App\Http\Requests\BasketCheckOutRequest;
-use App\Service\Transaction\Gateways\Pasargad;
 
 class CheckOutController extends Controller
 {
@@ -40,7 +40,10 @@ class CheckOutController extends Controller
                 );
             }
 
-            dd($this->gatewayFactory($request));
+            if ($request->paymentMethod === 'online') {
+                $this->gatewayFactory($request)->pay($order);
+            }
+
         } catch (AmountIsZeroException $e) {
             return back()->with('error', __('payment.amount is zero'));
         }
