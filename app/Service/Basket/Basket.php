@@ -17,7 +17,7 @@ class Basket
     public function __construct(StorageInterface $storage)
     {
         $this->storage = $storage;
-        $this->transportationCosts = Config::get('payment.transportationCosts');
+        $this->transportationCosts = config('payment.transportationCosts');
     }
 
     public function getTransportationCosts()

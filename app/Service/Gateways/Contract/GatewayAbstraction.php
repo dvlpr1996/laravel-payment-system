@@ -16,7 +16,7 @@ abstract class GatewayAbstraction implements GatewayInterface
         $bankId = $this->getGatewayName() . 'payment';
         $amount = $order->amount + config('payment.transportationCosts');
 
-        echo "<form id='{$bankId}' action='{$action}' method='post'>
+        echo "<form id='{$bankId}' action='{$action}' method='POST'>
 		<input type='hidden' name='Amount' value='{$amount}' />
 		<input type='hidden' name='ResNum' value='{$order->code}'>
 		<input type='hidden' name='RedirectURL' value='{$this->callbackRoute()}'/>
@@ -37,5 +37,10 @@ abstract class GatewayAbstraction implements GatewayInterface
     protected function callbackRoute(): string
     {
         return route('payment.verified', $this->getGatewayName());
+    }
+
+    protected function findOrder(string $resNum)
+    {
+        return Order::where('code', $resNum)->firstOrFail();
     }
 }

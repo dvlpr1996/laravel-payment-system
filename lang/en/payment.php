@@ -7,6 +7,6 @@ return [
     'amount is zero' => 'Total Price is zero you should select stickers first',
     'no items found' => 'there is no items here. see our products',
     'offline payment ok' => 'offline payment successfully done your order id is => :orderId',
-    'transaction failed' => '',
-    'transaction success' => '',
+    'transaction failed' => 'There was a problem while placing the order',
+    'transaction success' => 'Your order has been successfully placed',
 ];
