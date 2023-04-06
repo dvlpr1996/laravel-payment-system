@@ -75,15 +75,7 @@ class Transaction
             return false;
         }
 
-        $onlinePaymentData = [
-            'ref_num' => $result['refNum'],
-            'gateway' => $result['gateway'],
-            'status' => 1,
-            'method' => 'online',
-            'amount' => $result['order']->amount + config('payment.transportationCosts'),
-        ];
-
-        $result['order']->payment()->create($onlinePaymentData);
+        $this->payment->createOnlinePayment($result);
 
         $this->updateQuantity($result['order']);
 

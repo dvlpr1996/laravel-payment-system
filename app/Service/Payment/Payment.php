@@ -24,12 +24,16 @@ class Payment
         ]);
     }
 
-    public function createOnlinePayment(Order $order, BasketCheckOutRequest $request)
+    public function createOnlinePayment($result)
     {
-        ModelsPayment::create([
-            'order_id' => $order->id,
-            'method' => $request->paymentMethod,
-            'amount' => $this->basket->payableAmount()
-        ]);
+        $onlinePaymentData = [
+            'ref_num' => $result['refNum'],
+            'gateway' => $result['gateway'],
+            'status' => 1,
+            'method' => 'online',
+            'amount' => $result['order']->amount + config('payment.transportationCosts'),
+        ];
+
+        $result['order']->payment()->create($onlinePaymentData);
     }
 }
