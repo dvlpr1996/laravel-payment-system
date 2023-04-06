@@ -23,7 +23,7 @@ class Order extends Model
         return $this->belongsToMany(Product::class)->withPivot('quantity');
     }
 
-    public function payment(): HasOne
+    public function payment()
     {
         return $this->hasOne(Payment::class);
     }
@@ -31,5 +31,10 @@ class Order extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function totalCost()
+    {
+        return $this->amount + config('payment.transportationCosts');
     }
 }

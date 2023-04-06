@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Order;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BasketController;
@@ -7,7 +8,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CheckOutController;
 
-Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::view('/', 'app.home')->name('index');
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{product:slug}', 'product')->name('product');
@@ -29,6 +30,3 @@ Route::middleware(['auth'])->group(function () {
 
 Route::Post('/payment/{gateway}/callback', [PaymentController::class, 'verify'])
     ->name('payment.verified');
-
-Route::get('/t', function () {
-});
