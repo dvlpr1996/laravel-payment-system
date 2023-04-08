@@ -47,6 +47,8 @@ class Transaction
 
         $this->basket->clearBasket();
 
+        $order->createInvoice();
+        
         return $order;
     }
 

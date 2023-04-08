@@ -22,7 +22,7 @@ class CheckOutController extends Controller
         $order = $this->transaction->checkOut($request);
         return redirect()->route('index')->with(
             'success',
-            __('payment.offline payment ok', ['orderId' => $order->id])
+            __('payment.offline payment ok')
         );
     }
 }

@@ -3,7 +3,14 @@
 if (!function_exists('moneyFormat')) {
     function moneyFormat(string $value): string
     {
-        return __('app.price unit') . ' ' . number_format(trim($value), 0, '');
+        return __('app.price unit') . ' ' . moneyFormatWithOutUnit($value);
+    }
+}
+
+if (!function_exists('moneyFormatWithOutUnit')) {
+    function moneyFormatWithOutUnit(string $value): string
+    {
+        return number_format(trim($value), 0, '');
     }
 }
 

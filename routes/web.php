@@ -1,8 +1,10 @@
 <?php
 
 use App\Models\Order;
+use Illuminate\Support\Str;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
@@ -30,3 +32,6 @@ Route::middleware(['auth'])->group(function () {
 
 Route::Post('/payment/{gateway}/callback', [PaymentController::class, 'verify'])
     ->name('payment.verified');
+
+Route::get('/t', function () {
+});

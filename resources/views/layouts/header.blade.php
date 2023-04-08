@@ -30,6 +30,6 @@
 </head>
 
 <body x-data="{ 'darkMode': true }" x-init="darkMode = JSON.parse(localStorage.getItem('darkMode'));
-$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)));" class="debug-screens mx-auto max-w-7xl px-4">
+$watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)));" class="mx-auto max-w-7xl px-4">
 
 		<div x-bind:class="{ 'dark': darkMode === true }" id="page-container">
