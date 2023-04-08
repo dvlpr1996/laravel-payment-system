@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\BasketCheckOutRequest;
+use App\Service\Basket\Basket;
 use App\Service\Transaction\Transaction;
+use App\Http\Requests\BasketCheckOutRequest;
 
 class CheckOutController extends Controller
 {
     public function __construct(
-        private Transaction $transaction
+        private Transaction $transaction,
+        private Basket $basket
     ) {
+        $this->middleware('EnsureBasketIsNotEmpty');
     }
 
     public function index()

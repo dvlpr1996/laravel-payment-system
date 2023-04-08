@@ -1,4 +1,4 @@
-<div class="my-3 grid gap-3 grid-cols-12">
+<div class="my-3 grid gap-3 grid-cols-12" id="products">
 		@forelse ($products as $product)
 				<x-card :product="$product"></x-card>
 		@empty

@@ -4,6 +4,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Http\Middleware\EnsureBasketIsNotEmpty;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'app.home')->name('index');

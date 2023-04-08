@@ -26,4 +26,9 @@ class Product extends Model
     {
         return $this->decrement('stock', $count);
     }
+
+    public function unavailable(): bool
+    {
+        return $this->stock === 0;
+    }
 }

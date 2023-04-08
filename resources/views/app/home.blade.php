@@ -15,11 +15,11 @@
 										<p class="py-6 text-xl font-bold capitalize">
 												get the best product at your home
 										</p>
-										<a href="{{ route('index') }}" class="btn-primary btn">Get Started</a>
+										<a href="#products" class="btn-primary btn">Get Started</a>
 								</div>
 						</div>
 				</div>
-        
+
 				<x-cards></x-cards>
 		</div>
 

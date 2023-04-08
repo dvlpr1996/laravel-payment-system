@@ -25,8 +25,10 @@
 						</li>
 				</ul>
 
-				<a href="{{ route('checkout.index') }}" class="btn-primary btn w-full">
-						checkout
-				</a>
-		</div>
+				@if ($basketCalculator->basketCount() !== 0)
+						<a href="{{ route('checkout.index') }}" class="btn-primary btn w-full">
+								checkout
+						</a>
+				@endcan
+</div>
 </div>

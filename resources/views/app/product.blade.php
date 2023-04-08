@@ -31,8 +31,9 @@
 										<span class="text-xl font-bold">description :</span>
 										<span class="text-base font-bold">{{ $product->description }}</span>
 								</li>
+
 								<li class="flex items-center justify-between">
-										<a href="{{ route('basket.add', $product->slug) }}" class="w-full sm:w-[initial] btn-primary btn">
+										<a href="{{ route('basket.add', $product->slug) }}" class="w-full sm:w-[initial] btn-primary btn" @disabled($product->unavailable())>
 												add to cart
 										</a>
 								</li>

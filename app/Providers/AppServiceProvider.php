@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->app->bind(StorageInterface::class, function ($app) {
-            return new SessionStorage('cart');
+            return new SessionStorage(config('payment.bucket name'));
         });
     }
 }
