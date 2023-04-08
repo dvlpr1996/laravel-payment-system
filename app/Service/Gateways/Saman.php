@@ -3,8 +3,8 @@
 namespace App\Service\Gateways;
 
 use App\Models\Order;
-use Illuminate\Http\Request;
 use App\Service\Gateways\Contract\GatewayAbstraction;
+use Illuminate\Http\Request;
 
 class Saman extends GatewayAbstraction
 {
@@ -27,17 +27,17 @@ class Saman extends GatewayAbstraction
 
         $response = $soapClient->VerifyTransaction($request->input('RefNum'), $this->merchantID());
 
-        $order =  $this->findOrder($request->input('ResNum'));
+        $order = $this->findOrder($request->input('ResNum'));
 
-        return $response == ($order->totalCost())
+        return $response == $order->totalCost()
             ? [
                 'status' => self::TRANSACTION_SUCCESS,
                 'order' => $order,
                 'refNum' => $request->input('RefNum'),
-                'gateway' => $this->getGatewayName()
+                'gateway' => $this->getGatewayName(),
             ]
             : [
-                'status' => self::TRANSACTION_FAILED
+                'status' => self::TRANSACTION_FAILED,
             ];
     }
 }

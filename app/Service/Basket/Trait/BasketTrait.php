@@ -2,8 +2,8 @@
 
 namespace App\Service\Basket\Trait;
 
-use App\Models\Product;
 use App\Exceptions\QuantityExceededException;
+use App\Models\Product;
 
 trait BasketTrait
 {
@@ -36,7 +36,7 @@ trait BasketTrait
     {
         $this->checkBasketDate($product, $quantity);
         $this->addItemsToBasket($product, [
-            'quantity' => $quantity
+            'quantity' => $quantity,
         ]);
     }
 
@@ -56,6 +56,7 @@ trait BasketTrait
         foreach ($basketItemInfo as $item) {
             $item->quantity = $this->countQuantity($item);
         }
+
         return $basketItemInfo;
     }
 
@@ -65,6 +66,7 @@ trait BasketTrait
         foreach ($this->getBasketItemInfo() as $item) {
             $subtotal += $item->price * $item->quantity;
         }
+
         return $subtotal;
     }
 
@@ -83,7 +85,7 @@ trait BasketTrait
             throw new QuantityExceededException(__('payment.quantity exceeded'));
         }
 
-        if (!$quantity) {
+        if (! $quantity) {
             return $this->unsetItem($product);
         }
     }

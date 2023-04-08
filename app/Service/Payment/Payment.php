@@ -2,11 +2,10 @@
 
 namespace App\Service\Payment;
 
-use App\Models\Order;
-use App\Service\Basket\Basket;
-use App\Models\Payment as ModelsPayment;
 use App\Http\Requests\BasketCheckOutRequest;
-
+use App\Models\Order;
+use App\Models\Payment as ModelsPayment;
+use App\Service\Basket\Basket;
 
 class Payment
 {
@@ -15,16 +14,16 @@ class Payment
     ) {
     }
 
-    public function createOfflinePayment(Order $order, BasketCheckOutRequest $request)
+    public function offlinePayment(Order $order, BasketCheckOutRequest $request)
     {
         ModelsPayment::create([
             'order_id' => $order->id,
             'method' => $request->paymentMethod,
-            'amount' => $this->basket->payableAmount()
+            'amount' => $this->basket->payableAmount(),
         ]);
     }
 
-    public function createOnlinePayment($result)
+    public function onlinePayment($result)
     {
         $onlinePaymentData = [
             'ref_num' => $result['refNum'],

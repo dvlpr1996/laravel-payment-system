@@ -8,12 +8,13 @@ use Illuminate\Http\Request;
 abstract class GatewayAbstraction implements GatewayInterface
 {
     abstract public function pay(Order $order);
+
     abstract public function verify(Request $request);
 
     protected function sendOrderDataToBank(Order $order)
     {
         $action = config('payment.bankAction');
-        $bankId = $this->getGatewayName() . 'payment';
+        $bankId = $this->getGatewayName().'payment';
         $amount = $order->amount + config('payment.transportationCosts');
 
         echo "<form id='{$bankId}' action='{$action}' method='POST'>

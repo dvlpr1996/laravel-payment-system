@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use Illuminate\Http\Request;
-use App\Service\Basket\Basket;
-use App\Http\Requests\UpdateBasketRequest;
 use App\Exceptions\QuantityExceededException;
+use App\Http\Requests\UpdateBasketRequest;
+use App\Models\Product;
+use App\Service\Basket\Basket;
 
 class BasketController extends Controller
 {
@@ -18,6 +17,7 @@ class BasketController extends Controller
     public function index()
     {
         $baskets = $this->basket->getBasketItemInfo();
+
         return view('app.basket', compact('baskets'));
     }
 
@@ -25,7 +25,9 @@ class BasketController extends Controller
     {
         try {
             $this->basket->addToBasket($product, 1);
+
             return back()->with('success', __('payment.success add to basket'));
+
         } catch (QuantityExceededException $e) {
             return back()->with('error', __('payment.quantity exceeded'));
         }
@@ -34,12 +36,13 @@ class BasketController extends Controller
     public function remove(Product $product)
     {
         $this->basket->unsetItem($product);
+
         return back()->with('success', __('payment.success remove from basket'));
     }
 
     public function update(UpdateBasketRequest $request, Product $product)
     {
-        $quantity = (int)$request->quantity;
+        $quantity = (int) $request->quantity;
 
         if ($quantity === 0) {
             return $this->remove($product);
@@ -47,6 +50,7 @@ class BasketController extends Controller
 
         try {
             $this->basket->updateBasket($product, $quantity);
+
             return back()->with('success', __('payment.success add to basket'));
         } catch (QuantityExceededException $e) {
             return back()->with('error', __('payment.quantity exceeded'));

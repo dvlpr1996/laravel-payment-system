@@ -7,18 +7,18 @@ use App\Service\Storage\Contract\StorageInterface;
 class SessionStorage implements StorageInterface
 {
     public function __construct(
-        private $bucket = 'default'
+        private $bucket = 'cart'
     ) {
     }
 
     public function get($index)
     {
-        return session()->get($this->bucket . '.' . $index);
+        return session()->get($this->bucket.'.'.$index);
     }
 
     public function set($index, $value)
     {
-        return session()->put($this->bucket . '.' . $index, $value);
+        return session()->put($this->bucket.'.'.$index, $value);
     }
 
     public function all()
@@ -28,12 +28,12 @@ class SessionStorage implements StorageInterface
 
     public function exists($index)
     {
-        return session()->has($this->bucket . '.' . $index);
+        return session()->has($this->bucket.'.'.$index);
     }
 
     public function unset($index)
     {
-        return session()->forget($this->bucket . '.' . $index);
+        return session()->forget($this->bucket.'.'.$index);
     }
 
     public function clearAll()

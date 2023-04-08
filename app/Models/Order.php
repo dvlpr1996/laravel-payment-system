@@ -2,22 +2,20 @@
 
 namespace App\Models;
 
-use App\Models\User;
-use App\Models\Payment;
-use App\Models\Product;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Str;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Order extends Model
 {
     use HasFactory;
 
     protected $table = 'orders';
+
     protected $fillable = ['user_id', 'code', 'amount'];
 
     public function products(): BelongsToMany
@@ -48,14 +46,17 @@ class Order extends Model
 
     private function invoicePdfPath()
     {
-        if (!Storage::exists('app/public/invoices/')) {
+        $invoicesPath = 'app/public/invoices/';
+
+        if (! Storage::exists($invoicesPath)) {
             Storage::makeDirectory('public/invoices/');
         }
-        return storage_path('app/public/invoices/') . $this->invoiceName() . '.pdf';
+
+        return storage_path($invoicesPath).$this->invoiceName().'.pdf';
     }
 
     private function invoiceName()
     {
-        return Str::slug($this->id . ' ' . $this->user->fullName() . ' ' . time());
+        return Str::slug($this->id.' '.$this->user->fullName().' '.time());
     }
 }

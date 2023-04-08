@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Service\Transaction\Transaction;
-use App\Http\Requests\BasketCheckOutRequest;
+use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
@@ -15,9 +14,10 @@ class PaymentController extends Controller
 
     public function verify(Request $request)
     {
-        if (!$this->transaction->verify($request)) {
+        if (! $this->transaction->verify($request)) {
             return redirect()->route('index')->with('error', __('payment.transaction failed'));
         }
+
         return redirect()->route('index')->with('success', __('payment.transaction success'));
     }
 }

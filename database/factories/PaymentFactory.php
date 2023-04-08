@@ -18,7 +18,7 @@ class PaymentFactory extends Factory
             'gateway' => $this->fakePaymentMethod(),
             'ref_num' => fake()->randomNumber(5, true),
             'amount' => fake()->numberBetween(0, 400000),
-            'status' => $this->fakeStatus()
+            'status' => $this->fakeStatus(),
 
         ];
     }
@@ -27,6 +27,7 @@ class PaymentFactory extends Factory
     {
         $paymentMethod = ['online', 'cash', 'cards'];
         shuffle($paymentMethod);
+
         return array_rand($paymentMethod);
     }
 
@@ -34,6 +35,7 @@ class PaymentFactory extends Factory
     {
         $status = [0, 1];
         shuffle($status);
+
         return array_rand($status);
     }
 }

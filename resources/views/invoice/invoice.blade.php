@@ -12,10 +12,6 @@
 				width: 100%;
 		}
 
-		th {
-				text-align: center;
-		}
-
 		#customers td,
 		#customers th {
 				border: 1px solid #ddd;
@@ -26,17 +22,14 @@
 				background-color: #f2f2f2;
 		}
 
-		#customers tr:hover {
-				background-color: #ddd;
-		}
-
 		#customers th {
 				padding-top: 12px;
 				padding-bottom: 12px;
-				text-align: left;
+				text-align: center;
 				background-color: #04AA6D;
 				color: white;
 		}
+
 </style>
 </head>
 

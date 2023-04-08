@@ -1,14 +1,10 @@
 <?php
 
-use App\Models\Order;
-use Illuminate\Support\Str;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CheckOutController;
+use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'app.home')->name('index');
 

@@ -2,10 +2,10 @@
 
 namespace App\View\Components;
 
-use Closure;
 use App\Models\Product;
-use Illuminate\View\Component;
+use Closure;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
 class cards extends Component
 {

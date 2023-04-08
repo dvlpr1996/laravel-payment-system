@@ -3,22 +3,18 @@
 namespace App\Service\Gateways;
 
 use App\Models\Order;
+use App\Service\Gateways\Contract\GatewayAbstraction;
 use Illuminate\Http\Request;
-use App\Service\Gateways\Contract\GatewayInterface;
 
-class Pasargad implements GatewayInterface
+class Pasargad extends GatewayAbstraction
 {
     public function pay(Order $order)
     {
+        return 'Pasargad pay';
     }
 
     public function verify(Request $request)
     {
-
-    }
-
-    public function getName(): string
-    {
-        return '';
+        return 'Pasargad verify';
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Service\Order;
 
-use App\Service\Basket\Basket;
-use App\Models\Order as ModelsOrder;
 use App\Exceptions\AmountIsZeroException;
+use App\Models\Order as ModelsOrder;
+use App\Service\Basket\Basket;
 
 class Order
 {
@@ -27,7 +27,7 @@ class Order
 
         foreach ($this->basket->basketItems() as $index => $item) {
             $items[$index] = ['quantity' => $item['quantity']];
-        };
+        }
 
         $order->products()->attach($items);
 
