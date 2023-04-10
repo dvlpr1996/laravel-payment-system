@@ -5,11 +5,12 @@
 
 		<x-flash-msg />
 
-		<div class="mt-5 sm:mt-10 flex gap-5 flex-wrap md:gap-3 min-h-screen">
+		<div class="mt-5 flex min-h-screen flex-wrap gap-5 sm:mt-10 md:gap-3">
 
 				<div class="w-full md:w-6/12">
 						<div>
-								<img src="{{ $product->image }}" alt="{{ $product->title }}" class="w-full rounded-lg max-w-full max-h-full h-[300px] xs:h-auto">
+								<img src="{{ $product->image }}" alt="{{ $product->title }}"
+										class="h-[300px] max-h-full w-full max-w-full rounded-lg xs:h-auto">
 						</div>
 				</div>
 
@@ -25,7 +26,9 @@
 								</li>
 								<li class="flex items-center justify-between">
 										<span class="text-xl font-bold">stock :</span>
-										<span class="badge-primary badge text-base font-bold">{{ $product->stock }}</span>
+										<span class="badge-primary badge py-3 text-base font-bold">
+												{{ $product->stock == '0' ? 'End of inventory' : $product->stock }}
+										</span>
 								</li>
 								<li class="flex flex-wrap items-center justify-between gap-5">
 										<span class="text-xl font-bold">description :</span>
@@ -33,7 +36,8 @@
 								</li>
 
 								<li class="flex items-center justify-between">
-										<a href="{{ route('basket.add', $product->slug) }}" class="w-full sm:w-[initial] btn-primary btn" @disabled($product->unavailable())>
+										<a href="{{ route('basket.add', $product->slug) }}" class="btn-primary btn w-full sm:w-[initial]"
+												@disabled($product->unavailable())>
 												add to cart
 										</a>
 								</li>

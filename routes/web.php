@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Order;
 use App\Events\AuthenticationEvent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasketController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\ProductController;
 use App\Notifications\RegisterNotification;
 use App\Http\Controllers\CheckOutController;
 use Illuminate\Support\Facades\Notification;
+use App\Notifications\SuccessfullyPaymentNotification;
 
 Route::view('/', 'app.home')->name('index');
 
@@ -33,5 +35,6 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/t', function () {
-    
+    $order = Order::find('100180');
+    Notification::send($order, new SuccessfullyPaymentNotification);
 });

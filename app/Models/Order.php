@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Order extends Model
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     protected $table = 'orders';
 
@@ -44,19 +45,19 @@ class Order extends Model
         $pdf->save($this->invoicePdfPath());
     }
 
-    private function invoicePdfPath()
+    public function invoicePdfPath()
     {
         $invoicesPath = 'app/public/invoices/';
 
-        if (! Storage::exists($invoicesPath)) {
+        if (!Storage::exists($invoicesPath)) {
             Storage::makeDirectory('public/invoices/');
         }
 
-        return storage_path($invoicesPath).$this->invoiceName().'.pdf';
+        return storage_path($invoicesPath) . $this->invoiceName() . '.pdf';
     }
 
     private function invoiceName()
     {
-        return Str::slug($this->id.' '.$this->user->fullName().' '.time());
+        return Str::slug($this->id . ' ' . $this->user->fullName() . ' ' . time());
     }
 }
