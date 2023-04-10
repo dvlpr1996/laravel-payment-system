@@ -1,11 +1,13 @@
 <?php
 
+use App\Events\AuthenticationEvent;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BasketController;
-use App\Http\Controllers\CheckOutController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
-use App\Http\Middleware\EnsureBasketIsNotEmpty;
-use Illuminate\Support\Facades\Route;
+use App\Notifications\RegisterNotification;
+use App\Http\Controllers\CheckOutController;
+use Illuminate\Support\Facades\Notification;
 
 Route::view('/', 'app.home')->name('index');
 
@@ -25,10 +27,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/checkout', 'index')->name('checkout.index');
         Route::post('basket/checkout', 'checkOut')->name('basket.checkOut');
     });
+
+    Route::Post('/payment/{gateway}/callback', [PaymentController::class, 'verify'])
+        ->name('payment.verified');
 });
 
-Route::Post('/payment/{gateway}/callback', [PaymentController::class, 'verify'])
-    ->name('payment.verified');
-
 Route::get('/t', function () {
+    
 });
