@@ -2,16 +2,14 @@
 </a>
 </p>
 
-
 # Laravel Payment System
 
 ## Features
 
-- payment system with sessions
-- payment system with cookies
-- 
-- 
-- 
+- Payment System With Sessions
+- Sending Notification Email In Different Events
+- Using Daisy Ui Tailwind Css Components
+- Issuance Of Invoices For Customers
 
 ## Language And Tools
 
@@ -21,7 +19,6 @@
 
  ![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=fff)
  ![CSS3](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=fff)
- ![alpinejs](https://img.shields.io/badge/-alpine.js-2D323E?style=for-the-badge&logo=alpine.js&logoColor=fff)
  ![tailwindcss](https://img.shields.io/badge/-tailwind%20css-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=fff)
 </div>
 
