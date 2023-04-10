@@ -53,11 +53,24 @@ class Order extends Model
             Storage::makeDirectory('public/invoices/');
         }
 
-        return storage_path($invoicesPath) . $this->invoiceName() . '.pdf';
+        return storage_path($invoicesPath) . $this->invoiceName();
     }
 
     private function invoiceName()
     {
-        return Str::slug($this->id . ' ' . $this->user->fullName() . ' ' . time());
+        return Str::slug($this->id . ' ' . $this->user->fullName() . ' ' . 'invoice-file') . '.pdf';
+    }
+
+    public function downloadInvoice()
+    {
+        return Storage::exists($this->invoicePdfPath())
+            ? Storage::download($this->invoicePdfPath())
+            : $this->errorRedirectMsg();
+    }
+
+    private function errorRedirectMsg()
+    {
+        return redirect()->route('order.index', $this->user->slug)
+            ->with('error', __('payment.file does not exists'));
     }
 }

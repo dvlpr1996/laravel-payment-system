@@ -27,12 +27,14 @@ Route::middleware(['auth'])->group(function () {
         Route::post('basket/checkout', 'checkOut')->name('basket.checkOut');
     });
 
-    Route::get('/{user:slug}/orders', [OrderController::class, 'index'])->name('order.index');
+    Route::controller(OrderController::class)->group(function () {
+        Route::get('/{user:slug}/orders', 'index')->name('order.index');
+        Route::get('/{order}/invoice', 'download')->name('order.invoice.download');
+    });
 
     Route::Post('/payment/{gateway}/callback', [PaymentController::class, 'verify'])
         ->name('payment.verified');
 });
 
 Route::get('/t', function () {
-
 });

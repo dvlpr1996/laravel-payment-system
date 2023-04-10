@@ -23,4 +23,9 @@ class Payment extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public function checkStatus()
+    {
+        return $this->status === 0 ? 'uncompleted' : 'done';
+    }
 }

@@ -9,4 +9,5 @@ return [
     'offline payment ok' => 'offline payment successfully done',
     'transaction failed' => 'There was a problem while placing the order',
     'transaction success' => 'Your order has been successfully placed',
+    'file does not exists' => 'your invoice pdf file does not exits'
 ];

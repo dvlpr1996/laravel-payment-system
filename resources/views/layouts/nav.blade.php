@@ -50,7 +50,7 @@
 										</div>
 								</label>
 								<ul
-										class="dropdown-content menu menu-compact w-52 space-y-4 rounded-lg border border-neutral-content bg-base-100 p-5 shadow">
+										class="dropdown-content menu menu-compact w-52 space-y-2 rounded-lg border border-neutral-content bg-base-100 p-5 shadow">
 										<li>{{ ucfirst(auth()->user()->fullName()) }}</li>
 										<li>
 												<a href="{{ route('order.index',auth()->user()->slug) }}" class="pl-0">
