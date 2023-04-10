@@ -1,12 +1,11 @@
 <?php
 
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BasketController;
+use App\Http\Controllers\CheckOutController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\CheckOutController;
+use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'app.home')->name('index');
 

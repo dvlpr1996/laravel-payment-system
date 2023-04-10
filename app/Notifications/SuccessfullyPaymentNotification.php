@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -35,13 +34,13 @@ class SuccessfullyPaymentNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Dear ' . $notifiable->user->fullName())
+            ->subject('Dear '.$notifiable->user->fullName())
             ->line('Your Payment Successfully Done')
-            ->line('Order Id : ' . $notifiable->id)
-            ->line('Payment Method : ' . $notifiable->payment->method)
-            ->line('Payment Time : ' . $notifiable->payment->created_at)
+            ->line('Order Id : '.$notifiable->id)
+            ->line('Payment Method : '.$notifiable->payment->method)
+            ->line('Payment Time : '.$notifiable->payment->created_at)
             ->attach($notifiable->invoicePdfPath())
-            ->line('Order Total Cost : ' . $notifiable->totalCost());
+            ->line('Order Total Cost : '.$notifiable->totalCost());
     }
 
     /**

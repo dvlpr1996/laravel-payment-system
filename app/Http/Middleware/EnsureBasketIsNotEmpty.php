@@ -13,6 +13,7 @@ class EnsureBasketIsNotEmpty
         if (empty($request->session()->get(config('payment.bucket name')))) {
             return redirect()->route('index');
         }
+
         return $next($request);
     }
 }

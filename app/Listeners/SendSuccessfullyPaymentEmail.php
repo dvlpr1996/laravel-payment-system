@@ -3,10 +3,8 @@
 namespace App\Listeners;
 
 use App\Events\PaymentEvent;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Support\Facades\Notification;
 use App\Notifications\SuccessfullyPaymentNotification;
+use Illuminate\Support\Facades\Notification;
 
 class SendSuccessfullyPaymentEmail
 {

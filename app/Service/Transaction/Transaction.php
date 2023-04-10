@@ -3,16 +3,16 @@
 namespace App\Service\Transaction;
 
 use App\Events\PaymentEvent;
-use App\Service\Order\Order;
-use Illuminate\Http\Request;
-use App\Service\Basket\Basket;
-use App\Service\Gateways\Saman;
-use App\Service\Payment\Payment;
-use App\Service\Gateways\Pasargad;
-use Illuminate\Support\Facades\DB;
-use App\Models\Order as ModelOrder;
 use App\Http\Requests\BasketCheckOutRequest;
+use App\Models\Order as ModelOrder;
+use App\Service\Basket\Basket;
 use App\Service\Gateways\Contract\GatewayInterface;
+use App\Service\Gateways\Pasargad;
+use App\Service\Gateways\Saman;
+use App\Service\Order\Order;
+use App\Service\Payment\Payment;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Transaction
 {
@@ -72,7 +72,7 @@ class Transaction
         $this->basket->clearBasket();
 
         $order->createInvoice();
-        
+
         event(new PaymentEvent($order));
     }
 

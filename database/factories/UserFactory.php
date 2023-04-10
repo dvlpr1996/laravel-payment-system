@@ -18,10 +18,10 @@ class UserFactory extends Factory
             'lname' => fake()->lastName(),
             'email' => fake()->unique()->safeEmail(),
             'tel' => $this->fakePhoneNumber(),
-            'address' => fake()->city() . ' ' . fake()->streetName(),
+            'address' => fake()->city().' '.fake()->streetName(),
             'email_verified_at' => now(),
             'password' => Hash::make('123456789'),
-            'slug' => Str::slug(fake()->firstName() . ' ' . fake()->lastName()),
+            'slug' => Str::slug(fake()->firstName().' '.fake()->lastName()),
             'remember_token' => Str::random(10),
         ];
     }

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BasketCheckOutRequest;
 use App\Service\Basket\Basket;
 use App\Service\Transaction\Transaction;
-use App\Http\Requests\BasketCheckOutRequest;
 
 class CheckOutController extends Controller
 {

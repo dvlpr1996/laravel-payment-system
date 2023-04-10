@@ -3,7 +3,6 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
@@ -35,8 +34,8 @@ class RegisterNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-            ->subject('Welcome - ' . config('app.name'))
-            ->greeting('Hello Dear ' . $notifiable->fullName())
+            ->subject('Welcome - '.config('app.name'))
+            ->greeting('Hello Dear '.$notifiable->fullName())
             ->line('Welcome To Our Online Shop')
             ->action('See Our Stickers', url('/'))
             ->line('Thank you for using our online shop');

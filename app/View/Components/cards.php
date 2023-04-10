@@ -14,7 +14,7 @@ class cards extends Component
     public function __construct()
     {
         $this->products = Product::select([
-            'title', 'description', 'price', 'image', 'stock', 'slug'
+            'title', 'description', 'price', 'image', 'stock', 'slug',
         ])->get();
     }
 
