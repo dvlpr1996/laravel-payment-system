@@ -49,9 +49,14 @@
 												<img src="{{ auth()->user()->userGravatar() }}">
 										</div>
 								</label>
-								<ul tabindex="0"
+								<ul
 										class="dropdown-content menu menu-compact w-52 space-y-4 rounded-lg border border-neutral-content bg-base-100 p-5 shadow">
 										<li>{{ ucfirst(auth()->user()->fullName()) }}</li>
+										<li>
+												<a href="{{ route('order.index',auth()->user()->slug) }}" class="pl-0">
+														Orders
+												</a>
+										</li>
 										<li>
 												<form id="logout" action="{{ route('logout') }}" method="post" class="hidden">@csrf</form>
 												<a href="{{ route('logout') }}" class="p-0"

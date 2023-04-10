@@ -1,15 +1,12 @@
 <?php
 
-use App\Models\Order;
-use App\Events\AuthenticationEvent;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\BasketController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
-use App\Notifications\RegisterNotification;
 use App\Http\Controllers\CheckOutController;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\SuccessfullyPaymentNotification;
 
 Route::view('/', 'app.home')->name('index');
 
@@ -30,11 +27,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('basket/checkout', 'checkOut')->name('basket.checkOut');
     });
 
+    Route::get('/{user:slug}/orders', [OrderController::class, 'index'])->name('order.index');
+
     Route::Post('/payment/{gateway}/callback', [PaymentController::class, 'verify'])
         ->name('payment.verified');
 });
 
 Route::get('/t', function () {
-    $order = Order::find('100180');
-    Notification::send($order, new SuccessfullyPaymentNotification);
+
 });
