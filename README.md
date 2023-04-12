@@ -6,10 +6,7 @@
 
 ## Features
 
-- Payment System With Sessions
-- Sending Notification Email In Different Events
-- Using Daisy Ui Tailwind Css Components
-- Issuance Of Invoices For Customers
+
 
 ## Language And Tools
 
@@ -36,11 +33,11 @@
 
 ## Issues
 
-If you discover any issues, please using the issue tracker.
+If You Discover Any Issues Please Using The Issue Tracker
 
 ## Screenshots
 
-[Screenshots](screenshots) for more information.
+[Screenshots](screenshots) For More Information.
 
 ## Credits
 
