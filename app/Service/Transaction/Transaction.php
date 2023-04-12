@@ -77,14 +77,23 @@ class Transaction
         event(new PaymentEvent($order));
     }
 
-    private function gatewayFactory(Request $request)
+    private function gatewayFactory(?Request $request = null)
     {
+        if (is_null($request)) {
+            return resolve(Saman::class);
+        }
+
         $gateway = [
             'saman' => Saman::class,
             'pasargad' => Pasargad::class,
         ][$request->gateway];
 
         return resolve($gateway);
+    }
+
+    public function unfinished(ModelOrder $order)
+    {
+        return $this->gatewayFactory()->pay($order);
     }
 
     private function updateQuantity(ModelOrder $order)

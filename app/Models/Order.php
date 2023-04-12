@@ -78,4 +78,9 @@ class Order extends Model
     {
         return Storage::exists('public/invoices/' . $this->invoiceName());
     }
+
+    public function unfinished(): bool
+    {
+        return is_null($this->payment) ? true : false;
+    }
 }

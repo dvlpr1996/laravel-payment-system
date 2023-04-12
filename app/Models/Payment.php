@@ -26,6 +26,14 @@ class Payment extends Model
 
     public function checkStatus()
     {
-        return $this->status === 0 ? 'uncompleted' : 'done';
+        if ($this->method === 'cash' && $this->status === 0) {
+            return 'Not Cash Payed';
+        }
+        if ($this->method === 'online' && $this->status === 0) {
+            return 'Failed';
+        }
+        if ($this->status === 1) {
+            return 'Done';
+        }
     }
 }

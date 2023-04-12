@@ -48,6 +48,11 @@
 																				<a href="{{ route('order.invoice.download', $order->id) }}" class="btn" @disabled(!$order->checkInvoiceFile())>
 																						Invoice File
 																				</a>
+																				@if ($order->unfinished())
+																						<a href="{{ route('order.pay', $order->id) }}" class="btn">
+																								pay
+																						</a>
+																				@endif
 																		</td>
 																</tr>
 														@empty

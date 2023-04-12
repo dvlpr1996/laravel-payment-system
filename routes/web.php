@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::controller(OrderController::class)->group(function () {
         Route::get('/{user:slug}/orders', 'index')->name('order.index');
         Route::get('/{order}/invoice', 'download')->name('order.invoice.download');
+        Route::get('/order/{order}/pay', 'unfinished')->name('order.pay');
     });
 });
 
