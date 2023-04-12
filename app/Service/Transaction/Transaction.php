@@ -25,10 +25,11 @@ class Transaction
 
     public function checkOut(BasketCheckOutRequest $request)
     {
+        $order = $this->order->createOrder();
+
         DB::beginTransaction();
 
         try {
-            $order = $this->order->createOrder();
 
             if ($request->paymentMethod === 'cash') {
                 $this->payment->offlinePayment($order, $request);

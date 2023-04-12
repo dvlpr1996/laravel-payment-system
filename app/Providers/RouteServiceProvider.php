@@ -38,6 +38,8 @@ class RouteServiceProvider extends ServiceProvider
         // Route Global Constraints
         Route::pattern('product:slug', '[-a-zA-Z]+');
         Route::pattern('product:id', '[0-9]+');
+        Route::pattern('gateway', '[-a-zA-Z]+');
+        Route::pattern('user:slug', '[-a-zA-Z]+');
     }
 
     /**

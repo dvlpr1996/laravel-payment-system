@@ -15,17 +15,8 @@
     @apply capitalize;
   }
 
-  .select-input {
-    @apply select-primary select select-sm;
-  }
-
   footer {
     @apply my-3;
-  }
-
-  #page-container {
-    position: relative;
-    min-height: 100vh;
   }
 
   img {
@@ -38,6 +29,25 @@
 
   a {
     @apply hover:bg-inherit;
+  }
+}
+
+@layer components {
+  .green {
+    @apply text-green-500;
+  }
+
+  .red {
+    @apply text-rose-500;
+  }
+
+  .select-input {
+    @apply select-primary select select-sm;
+  }
+
+  #page-container {
+    position: relative;
+    min-height: 100vh;
   }
 }
 

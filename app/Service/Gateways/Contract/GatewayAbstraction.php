@@ -14,15 +14,15 @@ abstract class GatewayAbstraction implements GatewayInterface
     protected function sendOrderDataToBank(Order $order)
     {
         $action = config('payment.bankAction');
-        $bankId = $this->getGatewayName().'payment';
+        $bankId = $this->getGatewayName() . 'payment';
         $amount = $order->amount + config('payment.transportationCosts');
 
         echo "<form id='{$bankId}' action='{$action}' method='POST'>
-		<input type='hidden' name='Amount' value='{$amount}' />
-		<input type='hidden' name='ResNum' value='{$order->code}'>
-		<input type='hidden' name='RedirectURL' value='{$this->callbackRoute()}'/>
-		<input type='hidden' name='MID' value='{$this->merchantID()}'/>
-		</form><script>document.forms['{$bankId}'].submit()</script>";
+            <input type='hidden' name='Amount' value='{$amount}' />
+            <input type='hidden' name='ResNum' value='{$order->code}'>
+            <input type='hidden' name='RedirectURL' value='{$this->callbackRoute()}'/>
+            <input type='hidden' name='MID' value='{$this->merchantID()}'/>
+            </form><script>document.forms['{$bankId}'].submit()</script>";
     }
 
     protected function getGatewayName(): string

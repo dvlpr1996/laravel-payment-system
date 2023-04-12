@@ -10,15 +10,14 @@ class PaymentController extends Controller
     public function __construct(
         private Transaction $transaction,
     ) {
-
     }
 
     public function verify(Request $request)
     {
-        if (! $this->transaction->verify($request)) {
-            return redirect()->route('index')->with('error', __('payment.transaction failed'));
-        }
+        $transaction = $this->transaction->verify($request);
 
-        return redirect()->route('index')->with('success', __('payment.transaction success'));
+        return $transaction
+            ? redirect()->route('index')->with('success', __('payment.transaction success'))
+            : redirect()->route('index')->with('error', __('payment.transaction failed'));
     }
 }

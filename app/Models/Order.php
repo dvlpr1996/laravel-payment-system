@@ -49,22 +49,22 @@ class Order extends Model
     {
         $invoicesPath = 'app/public/invoices/';
 
-        if (! Storage::exists($invoicesPath)) {
+        if (!Storage::exists($invoicesPath)) {
             Storage::makeDirectory('public/invoices/');
         }
 
-        return storage_path($invoicesPath).$this->invoiceName();
+        return storage_path($invoicesPath) . $this->invoiceName();
     }
 
     private function invoiceName()
     {
-        return Str::slug($this->id.' '.$this->user->fullName().' '.'invoice-file').'.pdf';
+        return Str::slug($this->id . ' ' . $this->user->fullName() . ' ' . 'invoice-file') . '.pdf';
     }
 
     public function downloadInvoice()
     {
-        return Storage::exists($this->invoicePdfPath())
-            ? Storage::download($this->invoicePdfPath())
+        return $this->checkInvoiceFile()
+            ? Storage::download('public/invoices/' . $this->invoiceName())
             : $this->errorRedirectMsg();
     }
 
@@ -72,5 +72,10 @@ class Order extends Model
     {
         return redirect()->route('order.index', $this->user->slug)
             ->with('error', __('payment.file does not exists'));
+    }
+
+    public function checkInvoiceFile(): bool
+    {
+        return Storage::exists('public/invoices/' . $this->invoiceName());
     }
 }

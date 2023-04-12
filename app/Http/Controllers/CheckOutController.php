@@ -22,8 +22,10 @@ class CheckOutController extends Controller
 
     public function checkOut(BasketCheckOutRequest $request)
     {
-        $this->transaction->checkOut($request);
-
-        return redirect()->route('index')->with('success', __('payment.offline payment ok'));
+        $order = $this->transaction->checkOut($request);
+        return redirect()->route('index')->with(
+            'success',
+            __('payment.offline payment ok', ['orderId' => $order->id])
+        );
     }
 }

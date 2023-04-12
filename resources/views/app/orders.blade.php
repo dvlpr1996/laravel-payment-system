@@ -4,9 +4,9 @@
 @section('main')
 		@can('view', $user)
 
-       <x-flash-msg />
+				<x-flash-msg />
 
-				<h1 class="text-3xl capitalize my-5">{{ $user->fullName() }} Orders List : </h1>
+				<h1 class="my-5 text-3xl capitalize">{{ $user->fullName() }} Orders List : </h1>
 
 				<div class="my-5 min-h-screen">
 						@if (isset($user) && !empty($user))
@@ -30,17 +30,22 @@
 																<tr>
 																		<td class="text-center">{{ ++$key }}</td>
 																		<td class="text-center">{{ $order->code }}</td>
-																		<td class="text-center">{{ $order->amount }}</td>
-																		<td class="text-center">{{ $order->totalCost() }}</td>
+																		<td class="text-center">{{ moneyFormat($order->amount) }}</td>
 																		<td class="text-center">
-                                      {{ $order->payment->checkStatus() }}
-                                    </td>
+																				{{ moneyFormat($order->totalCost()) }}
+																		</td>
+																		@php
+																				$status = $order->payment?->checkStatus() ?? 'Failed';
+																		@endphp
+																		<td class="@checkFailed($status) text-center">
+																				{{ $status }}
+																		</td>
 																		<td class="text-center">{{ $order->created_at }}</td>
 																		<td class="text-center">
-                                      {{ $order->payment->method }}
-                                    </td>
+																				{{ $order->payment?->method ?? 'online' }}
+																		</td>
 																		<td class="text-center">
-																				<a href="{{ route('order.invoice.download', $order->id) }}" class="btn">
+																				<a href="{{ route('order.invoice.download', $order->id) }}" class="btn" @disabled(!$order->checkInvoiceFile())>
 																						Invoice File
 																				</a>
 																		</td>
