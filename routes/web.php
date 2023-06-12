@@ -35,6 +35,3 @@ Route::middleware(['auth'])->group(function () {
 
 Route::Post('/payment/{gateway}/callback', [PaymentController::class, 'verify'])
     ->name('payment.verified');
-
-// Route::get('/t', function () {
-// });
